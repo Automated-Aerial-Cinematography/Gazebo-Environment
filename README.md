@@ -17,9 +17,11 @@ C) RVIZ
 D) Xbox Controller
 
 The Gazebo Launch File loads the :
+
 A) Gazebo World file
 
 The Gazebo World File loads the :
+
 A) Gazebo World, objects, etc.
 
 
