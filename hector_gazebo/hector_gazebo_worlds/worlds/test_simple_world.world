@@ -149,7 +149,7 @@
         <collision name='collision'>
           <geometry>
             <box>
-              <size>1 1 1</size>
+              <size>1 0.999999 1</size>
             </box>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -169,7 +169,7 @@
         <visual name='visual'>
           <geometry>
             <box>
-              <size>1 1 1</size>
+              <size>1 0.999999 1</size>
             </box>
           </geometry>
           <material>
@@ -198,10 +198,10 @@
       <cast_shadows>1</cast_shadows>
     </light>
     <state world_name='default'>
-      <sim_time>101 618000000</sim_time>
-      <real_time>101 846096600</real_time>
-      <wall_time>1541907415 547905333</wall_time>
-      <iterations>101618</iterations>
+      <sim_time>813 892000000</sim_time>
+      <real_time>713 852427444</real_time>
+      <wall_time>1542482833 332492784</wall_time>
+      <iterations>712274</iterations>
       <model name='ground_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -212,24 +212,34 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='unit_box_0'>
-        <pose frame=''>-3.5452 0.509257 0.499995 -1e-05 0 0</pose>
+      <model name='person_standing'>
+        <pose frame=''>-0.004606 8.44625 0 -1e-06 1e-06 -7e-06</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-3.5452 0.509257 0.499995 -1e-05 0 0</pose>
+          <pose frame=''>-0.004606 8.44625 0 -1e-06 1e-06 -7e-06</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.004709 0.011055 -9.78158 -0.022108 0.009414 1e-06</acceleration>
-          <wrench>0.004709 0.011055 -9.78158 0 -0 0</wrench>
+          <acceleration>1.6093 1.13204 -1.51597 1.93822 1.45585 3.09686</acceleration>
+          <wrench>128.744 90.5631 -121.278 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_box_0'>
+        <pose frame=''>-3.5452 0.509252 0.499995 0 1e-05 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-3.5452 0.509252 0.499995 0 1e-05 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.010615 -0.006191 -9.78231 0.012424 0.021225 1.8e-05</acceleration>
+          <wrench>0.010615 -0.006191 -9.78231 0 -0 0</wrench>
         </link>
       </model>
       <model name='unit_box_1'>
-        <pose frame=''>-1.56678 5.66142 0.5 0 -0 0</pose>
-        <scale>1 1 1</scale>
+        <pose frame=''>-1.34468 4.86902 1.28879 0 -0 1e-06</pose>
+        <scale>2.60838 2.61964 2.57757</scale>
         <link name='link'>
-          <pose frame=''>-1.56678 5.66142 0.5 0 -0 0</pose>
+          <pose frame=''>-1.34468 4.86902 1.28879 0 -0 1e-06</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.004709 -9.78112 9.78158 0.712677 -0.009414 -4.3e-05</acceleration>
-          <wrench>-0.004709 -9.78112 9.78158 0 -0 0</wrench>
+          <acceleration>8.19635 -0.007826 8.54955 0.000548 0.084504 0.003103</acceleration>
+          <wrench>8.19635 -0.007826 8.54955 0 -0 0</wrench>
         </link>
       </model>
       <light name='sun'>
@@ -241,10 +251,82 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>13.939 -6.81431 2.86746 0 0.275643 2.35619</pose>
+        <pose frame=''>3.6259 -9.35366 5.68783 0 0.419643 1.96019</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <model name='person_standing'>
+      <link name='link'>
+        <inertial>
+          <pose frame=''>0 -0.1 0.95 0 -0 0</pose>
+          <mass>80</mass>
+          <inertia>
+            <ixx>24.88</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>25.73</iyy>
+            <iyz>0</iyz>
+            <izz>2.48</izz>
+          </inertia>
+        </inertial>
+        <collision name='bottom'>
+          <pose frame=''>0 -0.1 0.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.35 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='person'>
+          <pose frame=''>0 0 0.02 0.04 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://person_standing/meshes/standing.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose frame=''>0 0 0.02 0.04 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://person_standing/meshes/standing.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose frame=''>-0.004607 8.44625 0 0 -0 0</pose>
+    </model>
   </world>
 </sdf>
